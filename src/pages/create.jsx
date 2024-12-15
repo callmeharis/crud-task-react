@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import FileBase from "react-file-base64";
 
 function Create() {
   const [user, setUser] = useState({
@@ -109,7 +108,6 @@ function Create() {
             name="password"
           />
         </label>
-        <FileBase />
         <button className="btn btn-neutral mt-2" type="submit">
           Register
         </button>
