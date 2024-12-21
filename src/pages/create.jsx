@@ -18,7 +18,10 @@ function Create() {
   };
   async function submitHandler(e) {
     e.preventDefault();
-    const data = await axios.post("http://localhost:5000/create", user);
+    const data = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/create`,
+      user
+    );
     setUser({ firstName: "", lastName: "", email: "", password: "" });
     console.log("data", data);
     toast.success("User created successfully");

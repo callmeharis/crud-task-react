@@ -20,14 +20,19 @@ function Edit() {
   };
   async function submitHandler(e) {
     e.preventDefault();
-    const data = await axios.patch(`http://localhost:5000/users/${id}`, user);
+    const data = await axios.patch(
+      `${process.env.REACT_APP_BACKEND_URL}/users/${id}`,
+      user
+    );
     setUser({ firstName: "", lastName: "", email: "", password: "" });
     console.log("data", data);
     toast.success("User updated successfully");
     navigate("/");
   }
   async function fetchUser() {
-    const data = await axios.get(`http://localhost:5000/user/${id}`);
+    const data = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/user/${id}`
+    );
     console.log(data.data);
     setUser(data.data);
   }

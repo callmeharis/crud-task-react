@@ -8,7 +8,7 @@ export default function Users() {
   async function fetchUsers() {
     // const res = await fetch("http://localhost:5000");
     // const data = await res.json();
-    const data = await axios.get("http://localhost:5000");
+    const data = await axios.get(`${process.env.REACT_APP_BACKEND_URL}`);
     console.log("data", data.data);
     setUsers(data.data);
   }
@@ -16,7 +16,7 @@ export default function Users() {
     fetchUsers();
   }, []);
   async function deleteUser(id) {
-    await axios.delete(`http://localhost:5000/users/${id}`);
+    await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/users/${id}`);
     const singleUser = users.filter((mereusers) => mereusers._id !== id);
     setUsers(singleUser);
     toast.success("User removed");
